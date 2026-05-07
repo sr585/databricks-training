@@ -1,0 +1,74 @@
+Day 1 - SQL Practice Outputs
+Platform Used: DB Fiddle
+
+Query 1:
+SELECT * FROM Employee;
+
+Output:
+emp_id | name         | age | salary | department_id | hire_date
+----------------------------------------------------------------
+1      | John Doe     | 28  | 50000  | 1             | 2020-01-15
+2      | Jane Smith   | 34  | 60000  | 2             | 2019-07-23
+3      | Bob Brown    | 45  | 80000  | 1             | 2018-02-12
+4      | Alice Blue   | 25  | 45000  | 3             | 2021-03-22
+5      | Charlie P.   | 29  | 50000  | 2             | 2019-12-01
+6      | David Green  | 38  | 70000  | 4             | 2022-05-18
+7      | Eve Black    | 40  | 55000  | 3             | 2021-08-30
+8      | Frank White  | 32  | 48000  | NULL          | 2021-07-10
+9      | Grace Kelly  | 27  | 65000  | 1             | 2018-11-13
+10     | Hannah Lee   | 30  | 53000  | 4             | 2020-02-25
+
+
+Query 2:
+SELECT name, salary FROM Employee;
+
+Output:
+name         | salary
+----------------------
+John Doe     | 50000
+Jane Smith   | 60000
+Bob Brown    | 80000
+Alice Blue   | 45000
+Charlie P.   | 50000
+David Green  | 70000
+Eve Black    | 55000
+Frank White  | 48000
+Grace Kelly  | 65000
+Hannah Lee   | 53000
+
+Query3: 
+SELECT * FROM Employee WHERE age > 30;
+
+Output:
+emp_id | name         | age | salary | department_id | hire_date
+----------------------------------------------------------------
+2      | Jane Smith   | 34  | 60000  | 2             | 2019-07-23
+3      | Bob Brown    | 45  | 80000  | 1             | 2018-02-12
+6      | David Green  | 38  | 70000  | 4             | 2022-05-18
+7      | Eve Black    | 40  | 55000  | 3             | 2021-08-30
+8      | Frank White  | 32  | 48000  | NULL          | 2021-07-10
+
+Query4:
+SELECT name FROM Department;
+
+Output:
+name
+------
+IT
+HR
+Finance
+Marketing
+
+Query5:
+SELECT e.*
+FROM Employee e
+JOIN Department d 
+ON e.department_id = d.department_id
+WHERE d.name = 'IT';
+
+Output:
+emp_id | name         | age | salary | department_id | hire_date
+----------------------------------------------------------------
+1      | John Doe     | 28  | 50000  | 1             | 2020-01-15
+3      | Bob Brown    | 45  | 80000  | 1             | 2018-02-12
+9      | Grace Kelly  | 27  | 65000  | 1             | 2018-11-13
